@@ -28,6 +28,8 @@ const reverse2 = (str) => {
 
 reverse2('bankai bankai bankai');
 
+const reverse3 = (str) => [...str].reverse().join('');
+
 // [0, 3, 4, 31], [4, 6, 30] --> [0, 3, 4, 4, 6, 30, 31]
 
 const mergeSorted = (arr1, arr2) => {

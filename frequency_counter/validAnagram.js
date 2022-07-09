@@ -1,3 +1,5 @@
+// Given two strings, write a function to determine if the second string is an anagram
+
 function validAnagram(str1, str2) {
     if(str1.length !== str2.length) return false;
     const lookUp = {};

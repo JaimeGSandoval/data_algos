@@ -1,27 +1,6 @@
 // Write a function which accepts a string and returns the length of the longest substring with all unique characters
 
-
-function findLongestSubstring(str) {
-    let longest = 0;
-    const seen = {};
-    let start = 0;
-    
-    for(let i = 0; i < str.length; i++) {
-        let char = str[i];
-        
-        if(seen[char]) {
-            start = Math.max(start, seen[char]);
-         }
-        
-        longest = Math.max(longest, i - start + 1);
-        
-        seen[char] = i + 1;
-    }
-    
-    return longest;
-}
-
-function findLongestSubstring2(str) {
+function lengthOfLongestSubstring(str) {
     if(str === null || str.length === 0) return 0;
     
     let max = 0;
@@ -33,6 +12,9 @@ function findLongestSubstring2(str) {
         const char = str[i];
 
         // The inner while loop will only iterate once through every char of the string. It does not keep looping for every iteration of the outer loop. Hence it is O(2N). 
+        
+        // a critical clue about the time complexity here:  when j advances forward, i does NOT go back to j and start iterating from there.  it stays where it is -- otherwise it would be O(n^2)
+
         while(set.has(char)) {
             set.delete(str[j]);
             j++;
@@ -46,3 +28,28 @@ function findLongestSubstring2(str) {
 
     return max;
 }
+
+function lengthOfLongestSubstring2(s) {
+    if(s === null || s.length === 0) return 0;
+    
+    
+    let longest = 0;
+    const set = new Set();
+    let j = 0;
+    
+    for (let i = 0; i < s.length; i++) {
+        let char = s[i];
+        
+        // shrink the window until there is no repeating character i.e. remove all the characters until you reach the repeating character
+        while(set.has(char)) {
+            set.delete(s[j]);
+            j++;
+        }
+        
+        longest = Math.max(longest, i - j + 1);
+        set.add(char);
+        
+    }
+    
+    return longest;
+};

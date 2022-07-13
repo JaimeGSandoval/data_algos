@@ -20,3 +20,29 @@ function findLongestSubstring(str) {
     
     return longest;
 }
+
+function findLongestSubstring2(str) {
+    if(str === null || str.length === 0) return 0;
+    
+    let max = 0;
+    let set = new Set();
+    let i = 0;
+    let j = 0;
+
+    while(i < str.length) {
+        const char = str[i];
+
+        // The inner while loop will only iterate once through every char of the string. It does not keep looping for every iteration of the outer loop. Hence it is O(2N). 
+        while(set.has(char)) {
+            set.delete(str[j]);
+            j++;
+        }
+
+        set.add(char);
+        max = Math.max(max, i - j + 1);
+        i++;
+
+    }
+
+    return max;
+}

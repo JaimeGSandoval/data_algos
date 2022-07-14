@@ -1,4 +1,4 @@
-// Write a function which accepts a string and returns the length of the longest substring with all unique characters
+// Given a string s, find the length of the longest substring without repeating characters.
 
 function lengthOfLongestSubstring(str) {
     if(str === null || str.length === 0) return 0;

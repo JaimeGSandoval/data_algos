@@ -20,7 +20,7 @@ function maxSumSubarray(arr, n) {
     return maxSum;
 }
 
-function maxSubArray2(arr, n) {
+function maxSumSubArray2(arr, n) {
     if(n > arr.length) return null;
 
     let maxSum = 0;

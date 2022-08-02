@@ -29,19 +29,3 @@ var mostWordsFound = function (sentences) {
 
   return maxWords;
 };
-
-var mostWordsFound2 = function (sentences) {
-  if (sentences === null || sentences.length === 0) return 0;
-  if (sentences.length === 1) return sentences[0].split(" ").length;
-
-  let maxWords = Math.max(
-    sentences[0].split(" ").length,
-    sentences[1].split(" ").length
-  );
-
-  sentences.forEach((word, i, arr) => {
-    maxWords = Math.max(maxWords, arr[i].split(" ").length);
-  });
-
-  return maxWords;
-};

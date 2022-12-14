@@ -123,3 +123,27 @@ const sumStr = (a,b) => (Number(a) + Number(b)).toString();
 // return its digits in descending order
 
 const descendingOrder = (num) => Number(num.toString().split('').sort((a, b) => b - a).join(''));
+
+// Return the number (count) of vowels in the given string.
+
+// We will consider a, e, i, o, u as vowels for this Kata (but not y).
+
+// The input string will only consist of lower case letters and/or spaces.
+
+function getCount(str) {
+  let count = 0;
+
+  const vowelsObj = {
+    a: 'a',
+    e: 'e',
+    i: 'i',
+    o: 'o',
+    u: 'u'
+  }
+  
+  for (const char of str) {
+    if (vowelsObj[char]) count++;
+  }
+
+  return count;
+}

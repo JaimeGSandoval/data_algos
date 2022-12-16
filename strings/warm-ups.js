@@ -189,4 +189,29 @@ function longest(s1, s2) {
   let str = new Set([...s1, ...s2]);
   return [...str].sort().join('');
   }
+
+
+// Simple, given a string of words, return the length of the shortest word(s). String will never be empty and you do not need to account for different data types.
+
+function findShort(s){
+  let shortest = Infinity;
+
+  s.split(' ').forEach((word) => {
+    if (word.length < shortest) {
+      shortest = word.length;
+    }
+  });
+
+  return shortest;
+}
+
+function findShort(s) {
+  return s.split(' ').reduce((min, word) => Math.min(min, word.length), Infinity);
+}
+
+function findShort(s){
+    return Math.min(...s.split(" ").map (s => s.length));
+}
+
+
   

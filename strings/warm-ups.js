@@ -236,4 +236,49 @@ function isIsogram(str){
 	return new Set(str.toUpperCase()).size == str.length;
 }
 
+// In DNA strings, symbols "A" and "T" are complements of each other, as "C" and "G". Your function receives one side of the DNA (string, except for Haskell); you need to return the other complementary side. DNA strand is never empty or there is no DNA at all
+
+// "ATTGC" --> "TAACG"
+// "GTAT" --> "CATA"
+
+function DNAStrand(dna) {
+  let result = '';
+  
+  const DNA = {
+    A: 'T',
+    T: 'A',
+    C: 'G',
+    G: 'C'
+  }
+
+  for (let i = 0; i < dna.length; i++) {
+      result += DNA[dna[i]];
+}
+
+  return result;
+}
+
+function DNAStrand(dna) {
+  const compliments = {
+    A: 'T',
+    T: 'A',
+    C: 'G',
+    G: 'C'
+  }
+  
+  return dna.replace(/./g, char => compliments[char]);
+}
+
+// In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+
+function highAndLow(numbers) {
+  const sorted = numbers.split(' ').sort((a, b) => a - b);
+  return `${sorted[sorted.length - 1]} ${sorted[0]}`;
+}
+
+function highAndLow(numbers){
+  numbers = numbers.split(' ');
+  return `${Math.max(...numbers)} ${Math.min(...numbers)}`;
+}
+
   

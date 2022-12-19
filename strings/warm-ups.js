@@ -294,3 +294,29 @@ function friend(friends){
 function friend(friends){
   return friends.filter(friend => friend.length === 4)
 }
+
+
+// Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
+
+function reverseWords(str) {
+  return str.split(' ').map(word => word.split('').reverse().join('')).join(' ');
+}
+
+// Given an integer as input, can you round it to the next (meaning, "greater than or equal") multiple of 5?
+
+
+function roundToNext5(n) {
+  for (let i = n; i < Infinity; i++) {
+    if (i % 5 === 0) return i;
+ }
+}
+
+function roundToNext5(n) {
+  return Math.ceil(n / 5) * 5;
+}
+
+function roundToNext5(n) {
+  while(n % 5 !== 0) n++;
+  return n;
+}
+
